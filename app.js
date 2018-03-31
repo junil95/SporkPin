@@ -578,10 +578,10 @@ app.delete('/api/reviews/:id/', isAuthenticated, function(req, res, next) {
 
 
 
-// const http = require('http');
-// const PORT = 3000;
-//
-// http.createServer(app).listen(PORT, function(err) {
-//     if (err) console.log(err);
-//     else console.log("HTTP server on http://localhost:%s", PORT);
-// });
+const http = require('http');
+const PORT = 3000;
+
+http.createServer(app).listen(PORT, function(err) {
+    if (err) console.log(err);
+    else console.log("HTTP server on http://localhost:%s", PORT);
+});
