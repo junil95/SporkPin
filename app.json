@@ -1,7 +1,7 @@
 {
   "name": "Small Sharp Tool",
   "description": "A review application for restaurants",
-  "repository": "https://github.com/junil95/FriendsEat",
+  "repository": "https://github.com/junil95/SporkPin",
   "keywords": ["node","express"],
   "image": "heroku/node",
 
