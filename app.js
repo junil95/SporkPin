@@ -383,7 +383,7 @@ app.patch('/api/reviews/like/:reviewId/', isAuthenticated, function(req, res, ne
                     db.close();
                     return res.status(500).end(err);
                 }
-                
+
                 var updated = req.session.username + " and " + (review[0].like) + " others have liked this!";
                 dbo.collection("reviews").update({ _id: review[0]._id }, { $set: {lastLike: updated} }, function(err, updatedName){
                     if (err) {
@@ -391,7 +391,7 @@ app.patch('/api/reviews/like/:reviewId/', isAuthenticated, function(req, res, ne
                         return res.status(500).end(err);
                     }
                     db.close();
-                    return res.json(updated); 
+                    return res.json(updated);
                 });
             });
         });
@@ -578,10 +578,10 @@ app.delete('/api/reviews/:id/', isAuthenticated, function(req, res, next) {
 
 
 
-const http = require('http');
-const PORT = 3000;
-
-http.createServer(app).listen(PORT, function(err) {
-    if (err) console.log(err);
-    else console.log("HTTP server on http://localhost:%s", PORT);
-});
+// const http = require('http');
+// const PORT = 3000;
+//
+// http.createServer(app).listen(PORT, function(err) {
+//     if (err) console.log(err);
+//     else console.log("HTTP server on http://localhost:%s", PORT);
+// });
