@@ -29,15 +29,15 @@ function insertReview(review){
           elmt.parentNode.removeChild(elmt);
         }
       });
-
-      elmt.querySelector('#likeReview').addEventListener('click', function(e){
-        //like-stat
-        api.likeReview(review._id, function(err, likedReview){
-          if (err) console.log(err);
-          document.getElementById('numLikes').innerHTML = likedReview;
-      });
-      });
     }
+
+    elmt.querySelector('#likeReview').addEventListener('click', function(){
+      //like-stat
+      api.likeReview(review._id, function(err, likedReview){
+        if (err) console.log(err);
+        document.getElementById('numLikes').innerHTML = likedReview;
+      });
+    });
     document.getElementById('reviews').prepend(elmt);
 }
 
@@ -351,7 +351,7 @@ window.addEventListener('load', function(){
     document.querySelector('#findUserButton').addEventListener('click', function(e){
       var username = document.getElementById("searchUser_form").elements.namedItem("username").value;
       api.getUser(username, function(err, user){
-        if (err) if (err) document.querySelector('.alert').innerHTML = err;
+        if (err) console.log(err);
         currUser = user._id;
         api.getUserReviews(currUser, 0, function(err, reviews){
           if (err) console.log(err);
