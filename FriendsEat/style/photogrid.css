@@ -36,6 +36,7 @@ img{
 
     html{
       overflow-y: scroll;
+      height: auto;
     }
 
     .column {
@@ -47,8 +48,8 @@ img{
         overflow: visible;
     }
     .column img{
-      height: 100px;
+      height: 200px;
       width: 100%;
-      overflow: visible;
+      overflow-y: visible;
     }
 }
