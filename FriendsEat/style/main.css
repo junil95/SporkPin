@@ -111,6 +111,7 @@ html,body,.col-md-12,.row {
         margin-top: 20px;
         position: relative;
         height: auto;
+        overflow: visible;
     }
     .newsfeed {
         order: 3;
