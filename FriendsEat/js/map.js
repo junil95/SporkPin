@@ -191,15 +191,42 @@ function createMarker(place, restaurantId) {
         };
 
         //open up infowindow when marker is clicked
-        google.maps.event.addListener(marker, 'click', function() {
+        google.maps.event.addListener(marker, 'click', function(event) {
+            var geocoder = new google.maps.Geocoder();
+            var address;
+
+            geocoder.geocode({
+                'latLng': event.latLng
+              }, function(results, status) {
+                if (status == google.maps.GeocoderStatus.OK) {
+                  if (results[0]) {
+                    address = results[0].formatted_address;
+                    var res = address.split(",");
+                    var street = res[0];
+                    var zip = res[1] + res[2];
+                    var country = res[3];
+                    var lat = marker.position.lat();
+                    var lng = marker.position.lng();
+                    var contentString = `
+                        <div id="content">
+                            <h6>${place.name}</h6>
+                            <div> ${street}</div>
+                            <div>${zip}</div>
+                            <div>${country}</div>
+                            <div> <a href="https://maps.google.com/maps?q=${lat},${lng}" target="_blank"> View on Google Maps </a> </div>
+                        </div>
+                    `;
+                    infowindow.setContent(contentString);
+                    infowindow.open(map, marker, contentString);
+                  }
+                }
+            });
+
             if (currentUser != "") {
                 document.querySelector('#restaurant_name').classList.remove('hidden');
                 document.querySelector('#pics').classList.remove('hidden');
             }
 
-
-            infowindow.setContent(JSON.stringify(content));
-            infowindow.open(map, this);
             // Change name header to current clicked on marker
             document.querySelector('#restaurant_name').innerHTML = content.name;
             currentRestaurantId = place.id;
