@@ -137,3 +137,8 @@ html,body,.col-md-12,.row {
     visibility: hidden;
     position: absolute;
 }
+
+footer{
+    margin-top: 10px;
+    text-align:center;
+}
