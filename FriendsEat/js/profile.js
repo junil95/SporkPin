@@ -351,7 +351,7 @@ window.addEventListener('load', function(){
     document.querySelector('#findUserButton').addEventListener('click', function(e){
       var username = document.getElementById("searchUser_form").elements.namedItem("username").value;
       api.getUser(username, function(err, user){
-        if (err) console.log(err);
+        if (err) if (err) document.querySelector('.alert').innerHTML = err;
         currUser = user._id;
         api.getUserReviews(currUser, 0, function(err, reviews){
           if (err) console.log(err);
