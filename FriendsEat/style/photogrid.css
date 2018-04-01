@@ -33,6 +33,11 @@ img{
 
 /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
 @media (max-width: 600px) {
+
+    html{
+      overflow-y: scroll;
+    }
+
     .column {
         -ms-flex: 100%;
         flex: 100%;
@@ -42,6 +47,8 @@ img{
         overflow: visible;
     }
     .column img{
-      height: 200px;
+      height: 100px;
+      width: 100%;
+      overflow: visible;
     }
 }
