@@ -26,3 +26,13 @@
     font-size: 13px;
     font-weight: 300;
 }
+
+.creditsContainer{
+  color: white;
+
+}
+
+.creditsContainer a{
+  color: red;
+
+}
