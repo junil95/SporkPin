@@ -35,7 +35,7 @@ function insertReview(review){
       //like-stat
       api.likeReview(review._id, function(err, likedReview){
         if (err) console.log(err);
-        document.getElementById('numLikes').innerHTML = likedReview;
+        elmt.getElementById('numLikes').innerHTML = likedReview;
       });
     });
     document.getElementById('reviews').prepend(elmt);
