@@ -28,11 +28,12 @@
 }
 
 .creditsContainer{
-  color: white;
+  color: rgba(0,0,0,.9);
 
 }
 
 .creditsContainer a{
-  color: red;
+  color: #721c24;
+  text-decoration: underline;
 
 }
