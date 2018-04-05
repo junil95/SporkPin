@@ -1,7 +1,7 @@
 // jshint esversion: 6
 
 const express = require('express');
-var redirectToHTTPS = require('express-http-to-https').redirectToHTTPS;
+var sslRedirect = require('heroku-ssl-redirect');
 const app = express();
 
 const bodyParser = require('body-parser');
@@ -26,7 +26,7 @@ app.use(session({
     saveUninitialized: true,
 }));
 
-app.use(redirectToHTTPS([], []));
+app.use(sslRedirect());
 
 app.use(function(req, res, next) {
     var cookies = cookie.parse(req.headers.cookie || '');
