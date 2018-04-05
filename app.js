@@ -1,6 +1,7 @@
 // jshint esversion: 6
 
 const express = require('express');
+var redirectToHTTPS = require('express-http-to-https').redirectToHTTPS;
 const app = express();
 
 const bodyParser = require('body-parser');
@@ -24,6 +25,8 @@ app.use(session({
     resave: false,
     saveUninitialized: true,
 }));
+
+app.use(redirectToHTTPS([], []));
 
 app.use(function(req, res, next) {
     var cookies = cookie.parse(req.headers.cookie || '');
