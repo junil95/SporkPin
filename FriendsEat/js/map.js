@@ -170,8 +170,7 @@ function createMarker(place, restaurantId) {
                 position: place.geometry.location
             });
             markers.push(marker);
-        }
-        else if (reviews.length > 0 && currentUser != null) {
+        } else if (reviews.length > 0 && currentUser != null) {
             marker = new google.maps.Marker({
                 map: map,
                 position: place.geometry.location,
@@ -197,17 +196,17 @@ function createMarker(place, restaurantId) {
 
             geocoder.geocode({
                 'latLng': event.latLng
-              }, function(results, status) {
+            }, function(results, status) {
                 if (status == google.maps.GeocoderStatus.OK) {
-                  if (results[0]) {
-                    address = results[0].formatted_address;
-                    var res = address.split(",");
-                    var street = res[0];
-                    var zip = res[1] + res[2];
-                    var country = res[3];
-                    var lat = marker.position.lat();
-                    var lng = marker.position.lng();
-                    var contentString = `
+                    if (results[0]) {
+                        address = results[0].formatted_address;
+                        var res = address.split(",");
+                        var street = res[0];
+                        var zip = res[1] + res[2];
+                        var country = res[3];
+                        var lat = marker.position.lat();
+                        var lng = marker.position.lng();
+                        var contentString = `
                         <div id="content">
                             <h6>${place.name}</h6>
                             <div> ${street}</div>
@@ -216,9 +215,9 @@ function createMarker(place, restaurantId) {
                             <div> <a href="https://maps.google.com/maps?q=${lat},${lng}" target="_blank"> View on Google Maps </a> </div>
                         </div>
                     `;
-                    infowindow.setContent(contentString);
-                    infowindow.open(map, marker, contentString);
-                  }
+                        infowindow.setContent(contentString);
+                        infowindow.open(map, marker, contentString);
+                    }
                 }
             });
 
@@ -326,9 +325,9 @@ function insertReview(review) {
         }
     });
 
-    elmt.querySelector('#likeReview').addEventListener('click', function(e){
+    elmt.querySelector('#likeReview').addEventListener('click', function(e) {
         //like-stat
-        api.likeReview(review._id, function(err, likedReview){
+        api.likeReview(review._id, function(err, likedReview) {
             if (err) console.log(err);
             document.getElementById('numLikes').innerHTML = likedReview;
         });
