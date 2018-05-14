@@ -67,8 +67,8 @@ function success(pos) {
         } else {
             deleteMarkers();
             var places = searchBox.getPlaces();
-            console.log(searchBox.gm_accessors_.places);
-            var userSearch = searchBox.gm_accessors_.places.jd.formattedPrediction;
+            //console.log(searchBox.gm_accessors_.places);
+            var userSearch = searchBox.gm_accessors_.places.gd.formattedPrediction;
 
             //var userSearch = searchBox.getPlaces();
             var lookUp;
